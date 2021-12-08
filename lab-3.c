@@ -47,7 +47,7 @@ int main (int argc, char* argv[]){
     if (vetor == NULL) {printf("ERRO--malloc\n"); return 2;} //isso é para caso ele não consiga alocar espaço na memória para essa matriz.
 
     for (long long int i=0; i<dim; i++){
-        vetor[i] = ((float)rand()/(float)(RAND_MAX)) * (rand()%1000); //populando o vetor com valores randomicos
+        vetor[i] = ((float)rand()/(float)(RAND_MAX)) * (rand()%100); //populando o vetor com valores randomicos
     }
 
     printf("Informe o limiar superior: ");
@@ -99,8 +99,9 @@ int main (int argc, char* argv[]){
     deltaConc = fim - ini;
 
 
-    printf("Seq %lf; %lld valores\n", deltaSeq, resultSeq);
-    printf("Conc %lf; %lld valores\n", deltaConc, resultConc);
+    printf("Seq %lf\n", deltaSeq);
+    printf("Conc %lf\n", deltaConc);
+    printf("Aceleração(Tempo Sequencial / Tempo Concorrente):%lf\n", (deltaSeq/deltaConc));
 
     //liberacao da memoria
     free(vetor);
